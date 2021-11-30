@@ -1,55 +1,7 @@
 _svd: ../esp32.base.svd
 
-
-_include:
-  - "_aes.yaml"
-  - "_uart.yaml"
-  - "_io_mux.yaml"
-  - "_gpio.yaml"
-  - "_rng.yaml"
-  - "_rtcio.yaml" 
-  - "_rename_registers.yaml"
-  - "_rename_bitfields.yaml"
-  - "_rtc_cntl.yaml"
-  - "_dport.yaml"
-  - "_interrupts.yaml"
-  - "_spi.yaml"
-  - "_timg.yaml"
-#  - "_indexed_interrupts.yaml" # currently broken with svdtools, see: https://github.com/esp-rs/esp32/issues/17
-  - "_indexed_interrupts_flat.yaml"
-
-_modify:
-  PWM:
-    name: PWM0
-  I2C_EXT:
-    name: I2C0
-  I2C1_EXT:
-    name: I2C1
-  TIMERGROUP0:
-    name: TIMG0
-  TIMERGROUP1:
-    name: TIMG1
-
-_add:
-  UART0:
-    derivedFrom: UART
-    baseAddress: "0x3ff40000"
-
-_derive:
-  TIMG0: TIMG
-  TIMG1: TIMG
-  SPI0: SPI
-  SPI1: SPI
-  SPI2: SPI
-  SPI3: SPI
-  PWM0: MCPWM
-  PWM1: MCPWM
-  PWM2: MCPWM
-  PWM3: MCPWM
-  I2C0: I2C
-  I2C1: I2C
-  UHCI0: UHCI
-  UHCI1: UHCI
-  UART0: UART
-  UART1: UART
-  UART2: UART
+UART0:
+  FIFO:
+    _modify:
+      RXFIFO_RD_BYTE:
+        access: read-write

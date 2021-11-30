@@ -25,4 +25,4 @@ fmt:
 
 build:
 	cargo clean
-	cargo +esp-dev build --target xtensa-esp32-none-elf -Zbuild-std=core
+	cargo +esp build -Zbuild-std --target xtensa-esp32-none-elf

@@ -1,5 +1,11 @@
 # esp32
 
+## Important:
+
+This fork was created to enable rapid prototyping. SVD patching has been enabled via [svdtools](https://github.com/stm32-rs/svdtools) so that changes can be made to the PAC as needed. As patches accumulate, I will eventually upstream them to the official Espressif SVDs and make the corresponding updates to this repository.
+
+---
+
 [![Build Status](https://travis-ci.com/esp-rs/esp32.svg?branch=master)](https://travis-ci.com/esp-rs/esp32)
 ![crates.io](https://img.shields.io/crates/v/esp32.svg)
 
@@ -7,9 +13,7 @@ A peripheral access crate the ESP32. See the [`svd2rust repo`](https://github.co
 
 Join in on the discussion: https://matrix.to/#/#esp-rs:matrix.org!
 
-
 ## [`Documentation`](https://docs.rs/esp32/latest/esp32/)
-
 
 ## Building
 
