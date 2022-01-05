@@ -5,3 +5,24 @@ UART0:
     _modify:
       RXFIFO_RD_BYTE:
         access: read-write
+  _delete:
+    _registers:
+      - FIFO_AHB
+GPIO:
+  "IN":
+    _modify:
+      "DATA":
+        access: read-write
+        name: data_next
+  "IN1":
+    _modify:
+      "DATA":
+        access: read-write
+        name: data_next
+IO_MUX:
+  "GPIO*":
+    _add:
+      MCU_WPU:
+        bitOffset: 3
+        bitWidth: 1
+        access: read-write

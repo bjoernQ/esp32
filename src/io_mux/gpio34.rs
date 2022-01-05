@@ -374,6 +374,43 @@ impl<'a> MCU_SEL_W<'a> {
         self.w
     }
 }
+#[doc = "Field `MCU_WPU` reader - "]
+pub struct MCU_WPU_R(crate::FieldReader<bool, bool>);
+impl MCU_WPU_R {
+    #[inline(always)]
+    pub(crate) fn new(bits: bool) -> Self {
+        MCU_WPU_R(crate::FieldReader::new(bits))
+    }
+}
+impl core::ops::Deref for MCU_WPU_R {
+    type Target = crate::FieldReader<bool, bool>;
+    #[inline(always)]
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+#[doc = "Field `MCU_WPU` writer - "]
+pub struct MCU_WPU_W<'a> {
+    w: &'a mut W,
+}
+impl<'a> MCU_WPU_W<'a> {
+    #[doc = r"Sets the field bit"]
+    #[inline(always)]
+    pub fn set_bit(self) -> &'a mut W {
+        self.bit(true)
+    }
+    #[doc = r"Clears the field bit"]
+    #[inline(always)]
+    pub fn clear_bit(self) -> &'a mut W {
+        self.bit(false)
+    }
+    #[doc = r"Writes raw bits to the field"]
+    #[inline(always)]
+    pub fn bit(self, value: bool) -> &'a mut W {
+        self.w.bits = (self.w.bits & !(0x01 << 3)) | ((value as u32 & 0x01) << 3);
+        self.w
+    }
+}
 impl R {
     #[doc = "Bit 0 - Output enable of the pad in sleep mode. 1: enable output; 0: disable output."]
     #[inline(always)]
@@ -424,6 +461,11 @@ impl R {
     #[inline(always)]
     pub fn mcu_sel(&self) -> MCU_SEL_R {
         MCU_SEL_R::new(((self.bits >> 12) & 0x07) as u8)
+    }
+    #[doc = "Bit 3"]
+    #[inline(always)]
+    pub fn mcu_wpu(&self) -> MCU_WPU_R {
+        MCU_WPU_R::new(((self.bits >> 3) & 0x01) != 0)
     }
 }
 impl W {
@@ -476,6 +518,11 @@ impl W {
     #[inline(always)]
     pub fn mcu_sel(&mut self) -> MCU_SEL_W {
         MCU_SEL_W { w: self }
+    }
+    #[doc = "Bit 3"]
+    #[inline(always)]
+    pub fn mcu_wpu(&mut self) -> MCU_WPU_W {
+        MCU_WPU_W { w: self }
     }
     #[doc = "Writes raw bits to the register."]
     #[inline(always)]

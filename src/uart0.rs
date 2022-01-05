@@ -1,7 +1,8 @@
 #[doc = r"Register block"]
 #[repr(C)]
 pub struct RegisterBlock {
-    _reserved_0_fifo: [u8; 0x04],
+    #[doc = "0x00 - "]
+    pub fifo: crate::Reg<fifo::FIFO_SPEC>,
     #[doc = "0x04 - "]
     pub int_raw: crate::Reg<int_raw::INT_RAW_SPEC>,
     #[doc = "0x08 - "]
@@ -62,28 +63,6 @@ pub struct RegisterBlock {
     #[doc = "0x7c - "]
     pub id: crate::Reg<id::ID_SPEC>,
 }
-impl RegisterBlock {
-    #[doc = "0x00 - "]
-    #[inline(always)]
-    pub fn fifo(&self) -> &crate::Reg<fifo::FIFO_SPEC> {
-        unsafe {
-            &*(((self as *const Self) as *const u8).add(0usize)
-                as *const crate::Reg<fifo::FIFO_SPEC>)
-        }
-    }
-    #[doc = "0x00 - "]
-    #[inline(always)]
-    pub fn fifo_ahb(&self) -> &crate::Reg<fifo_ahb::FIFO_AHB_SPEC> {
-        unsafe {
-            &*(((self as *const Self) as *const u8).add(0usize)
-                as *const crate::Reg<fifo_ahb::FIFO_AHB_SPEC>)
-        }
-    }
-}
-#[doc = "FIFO_AHB register accessor: an alias for `Reg<FIFO_AHB_SPEC>`"]
-pub type FIFO_AHB = crate::Reg<fifo_ahb::FIFO_AHB_SPEC>;
-#[doc = ""]
-pub mod fifo_ahb;
 #[doc = "FIFO register accessor: an alias for `Reg<FIFO_SPEC>`"]
 pub type FIFO = crate::Reg<fifo::FIFO_SPEC>;
 #[doc = ""]
